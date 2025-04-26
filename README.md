@@ -103,16 +103,16 @@ Rakshak is a comprehensive blood donation and requesting application built for t
 
 ## Screenshots
 
-| Home Screen                                     | User Dashboard                                                                                                                          |
-|-------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
-| <img src="screenshots/home.jpg" width="300">    | <img src="screenshots/userdashboard_1.jpg" width="300"> <img src="screenshots/userdashboard_2.jpg" width="300">                          |
+| Home Screen                                  | User Dashboard                                                                                                  |
+|----------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
+| <img src="screenshots/home.jpg" width="100"> | <img src="screenshots/userdashboard_1.jpg" width="100"> <img src="screenshots/userdashboard_2.jpg" width="100"> |
 
 ### Blood Bank Near User
-<img src="screenshots/blood_bank_map.jpg" width="300" alt="Blood Bank Map"> <img src="screenshots/blood_banks_1.jpg" width="300" alt="Blood Bank"> <img src="screenshots/blood_banks_2.jpg" width="300" alt="Blood Bank">
+<img src="screenshots/blood_bank_map.jpg" width="100" alt="Blood Bank Map"> <img src="screenshots/blood_banks_1.jpg" width="100" alt="Blood Bank"> <img src="screenshots/blood_banks_2.jpg" width="100" alt="Blood Bank">
 
 ### Events Near User
-<img src="screenshots/events_1.jpg" width="300" alt="Events">
-<img src="screenshots/events_2.jpg" width="300" alt="Events">
+<img src="screenshots/events_1.jpg" width="100" alt="Events">
+<img src="screenshots/events_2.jpg" width="100" alt="Events">
 
 ### Donation History
 <img src="screenshots/Donation.jpg" width="300" alt="Donation History">
