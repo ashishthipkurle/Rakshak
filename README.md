@@ -23,8 +23,8 @@ Rakshak is a comprehensive blood donation and requesting application built for t
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/rakshak.git
-   cd rakshak
+   git clone https://github.com/ashishthipkurle/Rakshak.git
+   cd Rakshak
    ```
 
 2. Install dependencies:
@@ -44,62 +44,34 @@ Rakshak is a comprehensive blood donation and requesting application built for t
 1. Create a Supabase account at [supabase.com](https://supabase.com)
 2. Create a new project
 3. Set up the following tables:
-
-#### Users Table
-```sql
-CREATE TABLE users (
-  id UUID PRIMARY KEY,
-  email TEXT UNIQUE NOT NULL,
-  name TEXT,
-  blood_group TEXT,
-  phone TEXT,
-  location TEXT,
-  last_donation_date TIMESTAMP,
-  donation_count INTEGER DEFAULT 0,
-  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
-);
-```
-
-#### Blood Requests Table
-```sql
-CREATE TABLE blood_requests (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-  requester_id UUID REFERENCES users(id),
-  blood_group TEXT NOT NULL,
-  quantity INTEGER,
-  hospital TEXT,
-  location TEXT,
-  urgency TEXT,
-  status TEXT DEFAULT 'pending',
-  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
-);
-```
-
-#### Donations Table
-```sql
-CREATE TABLE donations (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-  donor_id UUID REFERENCES users(id),
-  blood_group TEXT NOT NULL,
-  quantity INTEGER,
-  donation_date TIMESTAMP WITH TIME ZONE,
-  hospital TEXT,
-  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
-);
-```
+   For the database tables contect on this email:- ashishthipkurle1@gmail.com
 
 4. Add your Supabase URL and anon key to the project:
-    - Create a `.env` file in the project root
-    - Add the following:
-      ```
-      SUPABASE_URL=your_supabase_url
-      SUPABASE_ANON_KEY=your_supabase_anon_key
-      ```
+   - The URL and anonKey is in the api.dart file.
+   - Add the following:
+     ```
+     SUPABASE_URL=your_supabase_url
+     SUPABASE_ANON_KEY=your_supabase_anon_key
+     ```
 
-## Contributing
+## Google Maps API setup
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+1. Create a Google Cloud Platform account at [cloud.google.com](https://cloud.google.com)
+2. Create a new project
+3. Enable the Maps SDK for Android and iOS
+4. Generate an API key and restrict it to your app's package name and SHA-1 certificate fingerprint
+5. Add the API key to your Flutter project:
+   - For Android, add the API key to `android/app/src/main/AndroidManifest.xml`:
+     ```xml
+     <meta-data
+         android:name="com.google.android.geo.API_KEY"
+         android:value="YOUR_API_KEY"/>
+     ```
+   - For iOS, add the API key to `ios/Runner/AppDelegate.swift`:
+     ```swift
+     GMSServices.provideAPIKey("YOUR_API_KEY")
+     ```
 
-## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+
+
