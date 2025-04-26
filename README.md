@@ -103,10 +103,9 @@ Rakshak is a comprehensive blood donation and requesting application built for t
 
 ## Screenshots
 
-| Home Screen                   | User Dashboard                                                                                        |
-|-------------------------------|-------------------------------------------------------------------------------------------------------|
-| ![Home](screenshots/home.jpg) | ![user dashboard](screenshots/userdashboard_1.jpg)![user dashboard ](screenshots/userdashboard_2.jpg) |
-
+| Home Screen                                     | User Dashboard                                                                                                                          |
+|-------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
+| <img src="screenshots/home.jpg" width="300">    | <img src="screenshots/userdashboard_1.jpg" width="300"> <img src="screenshots/userdashboard_2.jpg" width="300">                          |
 
 ### Blood Bank Near User
 <img src="screenshots/blood_bank_map.jpg" width="300" alt="Blood Bank Map">
