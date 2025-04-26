@@ -72,6 +72,9 @@ Rakshak is a comprehensive blood donation and requesting application built for t
      GMSServices.provideAPIKey("YOUR_API_KEY")
      ```
 
+## Admin app setup
 
-
-
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/ashishthipkurle/Rakshak_admin.git
+   ```
