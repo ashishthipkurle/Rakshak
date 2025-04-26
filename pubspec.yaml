@@ -1,0 +1,99 @@
+name: Rakshak
+description: Blood Donation app in Jaysingpur
+publish_to: 'none'
+
+version: 1.0.0
+
+environment:
+  sdk: '>=3.0.3 <4.0.0'
+  flutter: ">=3.10.0 <3.19.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  shared_preferences: ^2.2.0
+
+  chat_gpt_sdk: ^2.2.5  # For OpenAI integration
+  bubble: ^1.2.1        # For chat UI bubbles
+
+  flutter_staggered_animations: ^1.1.1
+
+  animate_do: ^3.3.0
+  shimmer: ^3.0.0
+  google_fonts: ^6.1.0
+
+  url_launcher: ^6.1.10
+
+  lottie: ^2.7.0
+
+  share_plus: ^7.2.1
+
+  confetti: ^0.7.0
+
+  geolocator: ^11.0.0
+  uuid: 4.5.1
+  flutter_carousel_widget: ^2.1.2
+  supabase_flutter: ^2.8.4
+  flutter_secure_storage: ^8.0.0
+  flutter_svg: ^2.0.7
+  flutter_spinkit: ^5.2.0
+#  firebase_core: ^3.12.0
+#  firebase_database: ^11.3.3
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  path_provider: ^2.0.11
+  cupertino_icons: ^1.0.2
+  http: ^1.0.0
+  rounded_expansion_tile: ^0.0.13
+  fl_chart: ^0.63.0
+  font_awesome_flutter: ^10.5.0
+  intl: ^0.18.1
+  datetime_picker_formfield_new: ^2.1.0
+#  geolocator: ^9.0.2
+  pin_code_fields: ^8.0.1
+  google_maps_flutter: ^2.4.0
+  carousel_slider: ^4.2.1
+  geolocator_android: 4.6.0
+#  firebase_auth: ^5.5.0
+#  cloud_firestore: ^5.6.4
+
+dependency_overrides:
+  carousel_slider:
+    git:
+      url: https://github.com/serenader2014/flutter_carousel_slider
+      ref: master  # Or use a specific commit hash
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  hive_generator: ^2.0.0
+  build_runner: ^2.1.5
+  flutter_launcher_icons: ^0.13.1
+
+flutter_icon_generator:
+    image_path: "assets/images/img.png"
+    android: true
+    ios: true
+
+flutter_launcher_icons:
+   image_path: "assets/images/img.png"
+   android: true
+   ios: true
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/doctor.jpg
+    - assets/images/donate.jpg
+    - assets/images/patient.jpg
+    - assets/images/logo.png
+    - assets/images/img.png
+  fonts:
+    - family: Rubik
+      fonts:
+        - asset: lib/fonts/Rubik/Rubik-Regular.ttf
+        - asset: lib/fonts/Rubik/Rubik-Bold.ttf
+        - asset: lib/fonts/Rubik/Rubik-Light.ttf
+        - asset: lib/fonts/Rubik/Rubik-Italic.ttf
