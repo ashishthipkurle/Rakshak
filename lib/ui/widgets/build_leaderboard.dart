@@ -1,174 +1,417 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-Widget buildList(BuildContext context, int index, List leaderboardData) {
-  // First safety check - if data item is invalid
-  if (leaderboardData[index] == null) {
+Widget buildTopDonorsSection(List topDonors) {
+  return Container(
+    padding: const EdgeInsets.symmetric(vertical: 16),
+    child: Column(
+      children: [
+        const Text(
+          "Top Donors",
+          style: TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        const SizedBox(height: 16),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          physics: const BouncingScrollPhysics(),
+          padding: const EdgeInsets.symmetric(horizontal: 8),
+          child: Row(
+            children: [
+              // Second place
+              if (topDonors.length > 1)
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                  child: buildTopDonorCard(topDonors[1], 2, Colors.grey.shade400),
+                ),
+
+              // First place (center, larger)
+              if (topDonors.isNotEmpty)
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                  child: buildTopDonorCard(topDonors[0], 1, Colors.amber, isLarger: true),
+                ),
+
+              // Third place
+              if (topDonors.length > 2)
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                  child: buildTopDonorCard(topDonors[2], 3, Colors.brown.shade300),
+                ),
+            ],
+          ),
+        ),
+      ],
+    ),
+  );
+}
+
+Widget buildTopDonorCard(dynamic donor, int position, Color medalColor, {bool isLarger = false}) {
+  final String firstName = donor['first_name'] ?? '';
+  final String lastName = donor['last_name'] ?? '';
+  final int donations = donor['total_donations'] ?? 0;
+
+  // Increase the size slightly to accommodate content
+  final double size = isLarger ? 120.0 : 100.0;
+
+  return Container(
+    width: size,
+    height: size,
+    decoration: BoxDecoration(
+      color: Colors.white,
+      borderRadius: BorderRadius.circular(12),
+      boxShadow: [
+        BoxShadow(
+          color: Colors.grey.withOpacity(0.2),
+          spreadRadius: 1,
+          blurRadius: 4,
+          offset: const Offset(0, 2),
+        ),
+      ],
+    ),
+    padding: const EdgeInsets.all(4),
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        // Medal and donation count
+        SizedBox(
+          height: isLarger ? 50 : 40,
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              CircleAvatar(
+                backgroundColor: medalColor.withOpacity(0.2),
+                radius: isLarger ? 22 : 18,
+                child: Icon(
+                  FontAwesomeIcons.medal,
+                  color: medalColor,
+                  size: isLarger ? 22 : 18,
+                ),
+              ),
+              Positioned(
+                bottom: 0,
+                right: 0,
+                child: Container(
+                  padding: const EdgeInsets.all(3),
+                  decoration: BoxDecoration(
+                    color: Colors.red.shade600,
+                    shape: BoxShape.circle,
+                  ),
+                  child: Text(
+                    donations.toString(),
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: isLarger ? 10 : 8,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+
+        // Name and donation text
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.only(top: 2),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // First name
+                Text(
+                  firstName,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: isLarger ? 13 : 11,
+                  ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  textAlign: TextAlign.center,
+                ),
+
+                // Last name (if available)
+                if (lastName.isNotEmpty)
+                  Text(
+                    lastName,
+                    style: TextStyle(
+                      fontSize: isLarger ? 11 : 9,
+                    ),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    textAlign: TextAlign.center,
+                  ),
+
+                // Donation amount
+                Text(
+                  "${donations * 450} mL",
+                  style: TextStyle(
+                    color: Colors.red.shade600,
+                    fontSize: isLarger ? 11 : 9,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
+    ),
+  );
+}
+
+Widget buildModernLeaderboardItem(BuildContext context, int index, dynamic userData) {
+  if (userData == null) {
     return const SizedBox.shrink();
   }
 
-  int ind = index + 1;
-  double leftPadding = 38;
-
-  // Safely access total_donations with more robust null check
-  final totalDonations = leaderboardData[index]['total_donations'] is int
-      ? leaderboardData[index]['total_donations']
-      : 0;
-
-  // String length check now happens after ensuring totalDonations is non-null
-  String totalDonationsStr = totalDonations.toString();
-  if (totalDonationsStr.length == 2) {
-    leftPadding = 33;
-  } else {
-    leftPadding = 39;
-  }
-
-  // More robust null handling for strings
-  final firstNameRaw = leaderboardData[index]['first_name'];
-  String firstName = firstNameRaw != null ? firstNameRaw.toString() : '';
-
-  final lastNameRaw = leaderboardData[index]['last_name'];
-  String lastName = lastNameRaw != null ? lastNameRaw.toString() : '';
-
-  // Truncate long names after ensuring they're non-null
-  if (lastName.length > 15) {
-    lastName = lastName.substring(0, 15);
-  }
-
-  if (firstName.length > 15) {
-    firstName = firstName.substring(0, 15);
-  }
-
-  // Rest of your widget code continues unchanged
-  Widget crown;
-
-  if (ind == 1) {
-    crown = const Padding(
-        padding: EdgeInsets.only(right: 0.0),
-        child: Center(
-            child: Icon(
-              FontAwesomeIcons.medal,
-              size: 36,
-              color: Colors.yellow,
-            )));
-  } else if (ind == 2) {
-    crown = Padding(
-        padding: const EdgeInsets.only(right: 0.0),
-        child: Center(
-            child: Icon(
-              FontAwesomeIcons.medal,
-              size: 36,
-              color: Colors.grey[300],
-            )));
-  } else if (ind == 3) {
-    crown = Padding(
-        padding: const EdgeInsets.only(right: 0.0),
-        child: Center(
-            child: Icon(
-              FontAwesomeIcons.medal,
-              size: 36,
-              color: Colors.orange[300],
-            )));
-  } else {
-    crown = CircleAvatar(
-        backgroundColor: Colors.grey,
-        radius: 13,
-        child: Text(
-          ind.toString(),
-          style: const TextStyle(
-              color: Colors.black, fontWeight: FontWeight.bold, fontSize: 15),
-        ));
-  }
+  int rank = index + 1;
+  final String firstName = userData['first_name'] ?? '';
+  final String lastName = userData['last_name'] ?? '';
+  final int donations = userData['total_donations'] ?? 0;
 
   return Padding(
-    padding: const EdgeInsets.only(left: 8.0, right: 8.0, top: 10),
-    child: Container(
-      height: 60,
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [Color(0xff92bdef), Color(0xffa2d2ff)]),
-        borderRadius: BorderRadius.all(Radius.circular(15.0)),
-      ),
-      child: Row(
-        children: <Widget>[
-          Expanded(
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: Padding(
-                padding: const EdgeInsets.only(right: 0.0),
-                child: Row(
-                  children: <Widget>[
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 15.0, right: 15),
-                        child: crown,
+    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+    child: Hero(
+      tag: "donor_${userData['email'] ?? rank}",
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: () {
+            // Show donor details on tap
+            _showDonorDetails(context, userData);
+          },
+          borderRadius: BorderRadius.circular(12),
+          child: Ink(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(12),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.1),
+                  spreadRadius: 1,
+                  blurRadius: 3,
+                  offset: const Offset(0, 1),
+                ),
+              ],
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(12),
+              child: Row(
+                children: [
+                  // Rank
+                  Container(
+                    width: 36,
+                    height: 36,
+                    decoration: BoxDecoration(
+                      color: Colors.grey.shade100,
+                      shape: BoxShape.circle,
+                    ),
+                    alignment: Alignment.center,
+                    child: Text(
+                      rank.toString(),
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
                       ),
                     ),
-                    Align(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Padding(
-                              padding: const EdgeInsets.only(left: 8.0, top: 5),
-                              child: Text(
-                                "$firstName\n$lastName",
-                                style: const TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                    fontFamily: "Rubik",
-                                    fontSize: 18),
-                              ),
-                            ),
-                          ],
-                        )),
-                  ],
-                ),
+                  ),
+                  const SizedBox(width: 16),
+
+                  // Name
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "$firstName $lastName",
+                          style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        Text(
+                          "${donations * 450} mL donated",
+                          style: TextStyle(
+                            color: Colors.grey.shade600,
+                            fontSize: 14,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  // Donations count badge
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                    decoration: BoxDecoration(
+                      color: Colors.red.shade100,
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.favorite,
+                          color: Colors.red.shade600,
+                          size: 16,
+                        ),
+                        const SizedBox(width: 4),
+                        Text(
+                          donations.toString(),
+                          style: TextStyle(
+                            color: Colors.red.shade600,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
-          Align(
-            alignment: Alignment.centerRight,
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                textAlign: TextAlign.center,
-                "${totalDonations * 450}\nml",
-                style: const TextStyle(
-                    color: Colors.black,
-                    fontFamily: "Rubik",
-                    fontSize: 18),
-              ),
-            ),
-          ),
-          Align(
-            alignment: Alignment.centerRight,
-            child: Stack(children: [
-              const Padding(
-                  padding:
-                  EdgeInsets.only(left: 20.0, top: 5, bottom: 5, right: 20),
-                  child: Icon(
-                    FontAwesomeIcons.certificate,
-                    size: 50,
-                    color: Color(0xfff6e2bd),
-                  )),
-              Padding(
-                padding: EdgeInsets.only(left: leftPadding, top: 17),
-                child: Text(
-                  "$totalDonations",
-                  style: const TextStyle(
-                      color: Colors.black,
-                      fontFamily: "Rubik",
-                      fontSize: 22),
-                ),
-              ),
-            ]),
-          )
-        ],
+        ),
       ),
     ),
+  );
+}
+
+void _showDonorDetails(BuildContext context, dynamic userData) {
+  final String firstName = userData['first_name'] ?? '';
+  final String lastName = userData['last_name'] ?? '';
+  final int donations = userData['total_donations'] ?? 0;
+  final String bloodGroup = userData['blood_group'] ?? 'Unknown';
+
+  showModalBottomSheet(
+    context: context,
+    isScrollControlled: true,
+    backgroundColor: Colors.transparent,
+    builder: (context) => DraggableScrollableSheet(
+      initialChildSize: 0.4,
+      minChildSize: 0.3,
+      maxChildSize: 0.8,
+      builder: (_, controller) => Container(
+        decoration: const BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+        ),
+        padding: const EdgeInsets.all(16),
+        child: ListView(
+          controller: controller,
+          children: [
+            Center(
+              child: Container(
+                width: 60,
+                height: 5,
+                decoration: BoxDecoration(
+                  color: Colors.grey.shade300,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+            ),
+            const SizedBox(height: 24),
+            Center(
+              child: CircleAvatar(
+                radius: 40,
+                backgroundColor: Colors.red.shade100,
+                child: Text(
+                  "${firstName[0]}${lastName.isNotEmpty ? lastName[0] : ''}",
+                  style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.red.shade700,
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: 16),
+            Center(
+              child: Text(
+                "$firstName $lastName",
+                style: const TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            const SizedBox(height: 8),
+            Center(
+              child: Text(
+                "Blood Group: $bloodGroup",
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.grey.shade700,
+                ),
+              ),
+            ),
+            const SizedBox(height: 24),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                _buildStatColumn("Donations", donations.toString()),
+                _buildStatColumn("Blood Donated", "${donations * 450} mL"),
+                _buildStatColumn("Lives Saved", "${(donations / 3).ceil()}"),
+              ],
+            ),
+            const SizedBox(height: 24),
+            const Text(
+              "Donation History",
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 8),
+            // You would fetch actual donation history here
+            // This is a placeholder
+            ListView.builder(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: 3,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  leading: CircleAvatar(
+                    backgroundColor: Colors.red.shade50,
+                    child: Icon(Icons.bloodtype, color: Colors.red.shade700),
+                  ),
+                  title: Text("Donation #${donations - index}"),
+                  subtitle: Text("${DateTime.now().subtract(Duration(days: index * 90)).toString().substring(0, 10)}"),
+                  trailing: const Text("450 mL"),
+                );
+              },
+            ),
+          ],
+        ),
+      ),
+    ),
+  );
+}
+
+Widget _buildStatColumn(String title, String value) {
+  return Column(
+    children: [
+      Text(
+        value,
+        style: TextStyle(
+          fontSize: 24,
+          fontWeight: FontWeight.bold,
+          color: Colors.red.shade600,
+        ),
+      ),
+      const SizedBox(height: 4),
+      Text(
+        title,
+        style: TextStyle(
+          fontSize: 14,
+          color: Colors.grey.shade600,
+        ),
+      ),
+    ],
   );
 }
