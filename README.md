@@ -44,6 +44,7 @@ Rakshak is a comprehensive blood donation and requesting application built for t
 1. Create a Supabase account at [supabase.com](https://supabase.com)
 2. Create a new project
 3. Set up the following tables:
+
    For the database tables contect on this email:- ashishthipkurle1@gmail.com
 
 4. Add your Supabase URL and anon key to the project:
