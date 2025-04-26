@@ -103,9 +103,8 @@ Rakshak is a comprehensive blood donation and requesting application built for t
 
 ## Screenshots
 
-| Home Screen                                  | User Dashboard                                                                                                  |
-|----------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
-| <img src="screenshots/home.jpg" width="100"> | <img src="screenshots/userdashboard_1.jpg" width="100"> <img src="screenshots/userdashboard_2.jpg" width="100"> |
+### Home Screen & User Dashboard
+ <img src="screenshots/home.jpg" width="100"> <img src="screenshots/userdashboard_1.jpg" width="100"> <img src="screenshots/userdashboard_2.jpg" width="100">
 
 ### Blood Bank Near User
 <img src="screenshots/blood_bank_map.jpg" width="100" alt="Blood Bank Map"> <img src="screenshots/blood_banks_1.jpg" width="100" alt="Blood Bank"> <img src="screenshots/blood_banks_2.jpg" width="100" alt="Blood Bank">
@@ -115,30 +114,30 @@ Rakshak is a comprehensive blood donation and requesting application built for t
 <img src="screenshots/events_2.jpg" width="100" alt="Events">
 
 ### Donation History
-<img src="screenshots/Donation.jpg" width="300" alt="Donation History">
+<img src="screenshots/Donation.jpg" width="100" alt="Donation History">
 
 ### Blood Pressure
-<img src="screenshots/Blood_pressure.jpg" width="300" alt="Blood Pressure">
+<img src="screenshots/Blood_pressure.jpg" width="100" alt="Blood Pressure">
 
 ### Leaderboard
-<img src="screenshots/leaderboard.jpg" width="300" alt="Leaderboard">
+<img src="screenshots/leaderboard.jpg" width="100" alt="Leaderboard">
 
 ### Request
 
 ## All requests
-<img src="screenshots/all_request.jpg" width="300" alt="All Requests">
+<img src="screenshots/all_request.jpg" width="100" alt="All Requests">
 
 ## User request
-<img src="screenshots/user_request.jpg" width="300" alt="User Request">
+<img src="screenshots/user_request.jpg" width="100" alt="User Request">
 
 ## Request 
-<img src="screenshots/request.jpg" width="300" alt="Request">
+<img src="screenshots/request.jpg" width="100" alt="Request">
 
 ### Genral information
-<img src="screenshots/genral_info.jpg" width="300" alt="Genral information">
+<img src="screenshots/genral_info.jpg" width="100" alt="Genral information">
 
 ### User Profile
-<img src="screenshots/user_profile_1.jpg" width="300" alt="User Profile">
-<img src="screenshots/user_profile_2.jpg" width="300" alt="User Profile">
+<img src="screenshots/user_profile_1.jpg" width="100" alt="User Profile">
+<img src="screenshots/user_profile_2.jpg" width="100" alt="User Profile">
 
 
