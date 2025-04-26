@@ -110,8 +110,7 @@ Rakshak is a comprehensive blood donation and requesting application built for t
 <img src="screenshots/blood_bank_map.jpg" width="100" alt="Blood Bank Map"> <img src="screenshots/blood_banks_1.jpg" width="100" alt="Blood Bank"> <img src="screenshots/blood_banks_2.jpg" width="100" alt="Blood Bank">
 
 ### Events Near User
-<img src="screenshots/events_1.jpg" width="100" alt="Events">
-<img src="screenshots/events_2.jpg" width="100" alt="Events">
+<img src="screenshots/events_1.jpg" width="100" alt="Events"> <img src="screenshots/events_2.jpg" width="100" alt="Events">
 
 ### Donation History
 <img src="screenshots/Donation.jpg" width="100" alt="Donation History">
@@ -137,7 +136,7 @@ Rakshak is a comprehensive blood donation and requesting application built for t
 <img src="screenshots/genral_info.jpg" width="100" alt="Genral information">
 
 ### User Profile
-<img src="screenshots/user_profile_1.jpg" width="100" alt="User Profile">
-<img src="screenshots/user_profile_2.jpg" width="100" alt="User Profile">
+<img src="screenshots/user_profile_1.jpg" width="100" alt="User Profile"> <img src="screenshots/user_profile_2.jpg" width="100" alt="User Profile">
+
 
 
