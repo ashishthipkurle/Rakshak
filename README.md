@@ -109,37 +109,38 @@ Rakshak is a comprehensive blood donation and requesting application built for t
 
 ### Blood Bank Near User
 <img src="screenshots/blood_bank_map.jpg" width="300" alt="Blood Bank Map">
-![Blood Bank](screenshots/blood_banks_1.jpg)
-![Blood Bank](screenshots/blood_banks_2.jpg)
+<img src="screenshots/blood_banks_1.jpg" width="300" alt="Blood Bank">
+<img src="screenshots/blood_banks_2.jpg" width="300" alt="Blood Bank">
 
 ### Events Near User
-![Events](screenshots/events_1.jpg)
-![Events](screenshots/events_2.jpg)
+<img src="screenshots/events_1.jpg" width="300" alt="Events">
+<img src="screenshots/events_2.jpg" width="300" alt="Events">
 
 ### Donation History
-![Donation History](screenshots/Donation.jpg)
+<img src="screenshots/Donation.jpg" width="300" alt="Donation History">
 
 ### Blood Pressure
-![Blood Pressure](screenshots/Blood_pressure.jpg)
+<img src="screenshots/Blood_pressure.jpg" width="300" alt="Blood Pressure">
 
 ### Leaderboard
-![Leaderboard](screenshots/leaderboard.jpg)
+<img src="screenshots/leaderboard.jpg" width="300" alt="Leaderboard">
 
 ### Request
 
 ## All requests
-![All Requests](screenshots/all_request.jpg)
+<img src="screenshots/all_request.jpg" width="300" alt="All Requests">
 
 ## User request
-![User Request](screenshots/user_request.jpg)
+<img src="screenshots/user_request.jpg" width="300" alt="User Request">
 
 ## Request 
-![Request](screenshots/request.jpg)
+<img src="screenshots/request.jpg" width="300" alt="Request">
 
 ### Genral information
-![Genral information](screenshots/genral_info.jpg)
+<img src="screenshots/genral_info.jpg" width="300" alt="Genral information">
 
 ### User Profile
-![Profile](screenshots/user_profile_1.jpg)
-![Profile](screenshots/user_profile_2.jpg)
+<img src="screenshots/user_profile_1.jpg" width="300" alt="User Profile">
+<img src="screenshots/user_profile_2.jpg" width="300" alt="User Profile">
+
 
