@@ -629,43 +629,6 @@ class ApiService {
     }
   }
 
-  // Future<List> getDonationOffers(String requestId) async {
-  //   final client = Supabase.instance.client;
-  //
-  //   try {
-  //     // First, get the basic donation offers
-  //     final response = await client
-  //         .from('donation_offers')
-  //         .select()
-  //         .eq('request_id', requestId)
-  //         .order('offer_date', ascending: false);
-  //
-  //     // For each donation offer, fetch the donor information separately
-  //     List enrichedOffers = [];
-  //     for (var offer in response) {
-  //       // Get donor information using donor_phone
-  //       final userResponse = await client
-  //           .from('users')
-  //           .select()
-  //           .eq('phone_number', offer['donor_phone'])
-  //           .single();
-  //
-  //       // Add user data to the offer object
-  //       if (userResponse != null) {
-  //         offer['users'] = userResponse;
-  //       }
-  //
-  //       enrichedOffers.add(offer);
-  //     }
-  //
-  //     return enrichedOffers;
-  //   } catch (error) {
-  //     print('Error getting donation offers: $error');
-  //     return [];
-  //   }
-  // }
-
-// Accept a donation offer
 
 
   Future<bool> acceptDonationOffer(String offerId) async {

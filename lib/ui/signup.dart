@@ -499,12 +499,6 @@ class _SignupState extends State<Signup> {
                                     );
 
                                     if (success) {
-                                      // Store phone number in Hive box
-                                      // _boxLogin.put("phoneNumber", _controllerPhoneNumber.text);
-                                      // _boxLogin.put("email", _controllerEmail.text);
-                                      // _boxLogin.put("password", _controllerPassword.text);
-                                      // _boxLogin.put("address", _controllerAddress.text);
-                                      // _boxLogin.put("birth_date", birthDate.toString());
 
                                       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Login()));
                                     } else {
@@ -520,96 +514,7 @@ class _SignupState extends State<Signup> {
                                   }
                                 }
                               },
-  // const SizedBox(height: 20),
-  // Column(
-  // children: [
-  // ElevatedButton(
-  // style: ElevatedButton.styleFrom(
-  // minimumSize: const Size.fromHeight(50),
-  // shape: RoundedRectangleBorder(
-  // borderRadius: BorderRadius.circular(20),
-  // ),
-  // ),
-  //     onPressed: () async {
-  //       if (_formKey.currentState?.validate() ?? false) {
-  //         Map<String, dynamic> userData = {
-  //           'phone_number': _controllerPhoneNumber.text,
-  //           'first_name': _controllerFirstName.text,
-  //           'middle_name': _controllerMiddleName.text,
-  //           'last_name': _controllerLastName.text,
-  //           'email': _controllerEmail.text,
-  //           'address': _controllerAddress.text,
-  //           'birth_date': birthDate.toString(),
-  //           'blood_group': _selectedBloodGroup,
-  //           'gender': _selectedGender,
-  //         };
-  //
-  //         try {
-  //           bool success = await _authService.signUp(
-  //             _controllerEmail.text,
-  //             _controllerPassword.text,
-  //             userData,
-  //           );
-  //
-  //           if (success) {
-  //             Navigator.pushReplacement(
-  //               context,
-  //               MaterialPageRoute(
-  //                 builder: (context) => Home(
-  //                   userId: _controllerEmail.text, // Pass the user's email or ID
-  //                   isLoggedIn: true, // Example boolean value
-  //                 ),
-  //               ),
-  //             );
-  //           } else {
-  //             ScaffoldMessenger.of(context).showSnackBar(
-  //               const SnackBar(content: Text('Signup failed. Please try again.')),
-  //             );
-  //           }
-  //         } catch (e) {
-  //           print('Signup error: $e');
-  //           ScaffoldMessenger.of(context).showSnackBar(
-  //             SnackBar(content: Text('An error occurred: $e')),
-  //           );
-  //         }
-  //       }
-  //     },
-      // onPressed: () async {
-      //   if (_formKey.currentState?.validate() ?? false) {
-      //     Map<String, dynamic> userData = {
-      //       'phone_number': _controllerPhoneNumber.text,
-      //       'first_name': _controllerFirstName.text,
-      //       'middle_name': _controllerMiddleName.text,
-      //       'last_name': _controllerLastName.text,
-      //       'email': _controllerEmail.text,
-      //       'address': _controllerAddress.text,
-      //       'birth_date': birthDate.toString(),
-      //       'blood_group': _selectedBloodGroup,
-      //       'gender': _selectedGender,
-      //     };
-      //
-      //     try {
-      //       bool success = await _authService.signUp(
-      //         _controllerEmail.text,
-      //         _controllerPassword.text,
-      //         userData,
-      //       );
-      //
-      //       if (success) {
-      //         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Login()));
-      //       } else {
-      //         ScaffoldMessenger.of(context).showSnackBar(
-      //           SnackBar(content: Text('Signup failed. Please try again.')),
-      //         );
-      //       }
-      //     } catch (e) {
-      //       print('Signup error: $e');
-      //       ScaffoldMessenger.of(context).showSnackBar(
-      //         SnackBar(content: Text('An error occurred: $e')),
-      //       );
-      //     }
-      //   }
-      // },
+
       child: const Text("Sign Up",
           style: TextStyle(fontSize: 20))
                        ),
@@ -652,13 +557,4 @@ class _SignupState extends State<Signup> {
     super.dispose();
   }
 }
-// class NextScreen extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(title: const Text("Next Screen")),
-//       body: Center(child: const Text("Welcome to the next screen!")),
-//     );
-//   }
-// }
 

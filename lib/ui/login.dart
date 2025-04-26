@@ -217,66 +217,7 @@ class _LoginState extends State<Login> {
                               }
                             }
                           },
-                                    // onPressed: () async {
-                                    //   if (_formKey.currentState?.validate() ?? false) {
-                                    //     print('Login button pressed');
-                                    //     Map loginInfo = await ApiService().checkLogin(
-                                    //       _controllerEmail.text,
-                                    //       _controllerPassword.text,
-                                    //     );
-                                    //     print('Login info: $loginInfo');
-                                    //     if (loginInfo["success"] == true) {
-                                    //       _boxLogin.put("loginStatus", true);
-                                    //       _boxLogin.put("email", _controllerEmail.text);
-                                    //       _boxLogin.put("password", _controllerPassword.text);
-                                    //       _boxLogin.put("fname", loginInfo["fname"] ?? '');
-                                    //       _boxLogin.put("mname", loginInfo["mname"] ?? '');
-                                    //       _boxLogin.put("address", loginInfo["address"] ?? '');
-                                    //       _boxLogin.put("lname", loginInfo["lname"] ?? '');
-                                    //       _boxLogin.put("gender", loginInfo["gender"] ?? '');
-                                    //       _boxLogin.put("bloodGroup", loginInfo["bloodGroup"] ?? '');
-                                    //       _boxLogin.put("phoneNumber", loginInfo["phoneNumber"] ?? '');
-                                    //       _boxLogin.put("birthDate", loginInfo["birthDate"] ?? '');
-                                    //       _boxLogin.put("totalDonations", loginInfo["totalDonations"] ?? '');
-                                    //       if (!mounted) return;
-                                    //       navigateToHome(context);
-                                    //     } else {
-                                    //       setState(() {
-                                    //         errorMessage = "email or password is incorrect.";
-                                    //       });
-                                    //     }
-                                    //   }
-                                    // },
-                                    // onPressed: () async {
-                                    //   if (_formKey.currentState?.validate() ?? false) {
-                                    //     print('Login button pressed');
-                                    //     Map loginInfo = await ApiService().checkLogin(
-                                    //       _controllerEmail.text,
-                                    //       _controllerPassword.text,
-                                    //     );
-                                    //     print('Login info: $loginInfo');
-                                    //     if (loginInfo["success"] == true) {
-                                    //       _boxLogin.put("loginStatus", true);
-                                    //       _boxLogin.put("phoneNumber", loginInfo["phoneNumber"] ?? '');
-                                    //       _boxLogin.put("fname", loginInfo["fname"] ?? '');
-                                    //       _boxLogin.put("mname", loginInfo["mname"] ?? '');
-                                    //       _boxLogin.put("address", loginInfo["address"] ?? '');
-                                    //       _boxLogin.put("lname", loginInfo["lname"] ?? '');
-                                    //       _boxLogin.put("gender", loginInfo["gender"] ?? '');
-                                    //       _boxLogin.put("bloodGroup", loginInfo["bloodGroup"] ?? '');
-                                    //       _boxLogin.put("email", _controllerEmail.text);
-                                    //       _boxLogin.put("password", _controllerPassword.text);
-                                    //       _boxLogin.put("birthDate", loginInfo["birthDate"] ?? '');
-                                    //       _boxLogin.put("totalDonations", loginInfo["totalDonations"] ?? '');
-                                    //       if (!mounted) return;
-                                    //       navigateToHome(context);
-                                    //     } else {
-                                    //       setState(() {
-                                    //         errorMessage = loginInfo["error"];
-                                    //       });
-                                    //     }
-                                    //   }
-                                    // },
+
 
                                     child: const Text(
                                         "Login",

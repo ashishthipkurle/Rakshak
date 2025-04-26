@@ -78,3 +78,29 @@ Rakshak is a comprehensive blood donation and requesting application built for t
    ```bash
    git clone https://github.com/ashishthipkurle/Rakshak_admin.git
    ```
+
+## Usage
+
+### User App
+1. Register/Login using your email and password
+2. Create a blood request when you need blood
+3. View all requests and offer to donate for any matching request
+4. Track your donations and requests in the profile section
+5. Receive notifications for new offers and updates on your requests
+6. Use Google Maps to find nearby blood banks in Blood bank section
+7. View donation history and statistics in the profile section
+8. View leaderboard to see your ranking among donors
+9. View donation camps and events in the events section
+
+### Admin App
+1. Manage blood inventory and view stock levels
+2. Fulfill urgent blood requests from inventory
+3. Track all admin donations from the donation history screen
+4. View analytics and statistics for blood donation trends
+5. Add donation camps and events for users to see
+6. Add donation to the users donation history
+7. Add blood bank details to the blood bank section
+
+## Contributors
+
+- [Ashish Thipkurle](https://github.com/ashishthipkurle)
