@@ -156,7 +156,7 @@ class _SignupState extends State<Signup> with SingleTickerProviderStateMixin {
                     Row(
                       children: [
                         Expanded(
-                          flex: 3,
+                          flex: 2,
                           child: _buildInputField(
                             controller: _controllerFirstName,
                             focusNode: _focusNodeFirstName,
@@ -172,9 +172,22 @@ class _SignupState extends State<Signup> with SingleTickerProviderStateMixin {
                             onEditingComplete: () => _focusNodeMiddleName.requestFocus(),
                           ),
                         ),
-                        const SizedBox(width: 12),
+                        const SizedBox(width: 8),
                         Expanded(
-                          flex: 3,
+                          flex: 2,
+                          child: _buildInputField(
+                            controller: _controllerMiddleName,
+                            focusNode: _focusNodeMiddleName,
+                            labelText: "Middle Name",
+                            hintText: "Middle Name",
+                            icon: Icons.person_outline,
+                            // Middle name is optional
+                            onEditingComplete: () => _focusNodeLastName.requestFocus(),
+                          ),
+                        ),
+                        const SizedBox(width: 8),
+                        Expanded(
+                          flex: 2,
                           child: _buildInputField(
                             controller: _controllerLastName,
                             focusNode: _focusNodeLastName,
@@ -187,6 +200,7 @@ class _SignupState extends State<Signup> with SingleTickerProviderStateMixin {
                               }
                               return null;
                             },
+                            onEditingComplete: () => _focusNodeEmail.requestFocus(),
                           ),
                         ),
                       ],
