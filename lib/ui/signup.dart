@@ -3,7 +3,6 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:Rakshak/api.dart';
 import 'package:Rakshak/services/auth_service.dart';
-import 'package:lottie/lottie.dart'; // Add this package to pubspec.yaml
 import 'login.dart';
 
 class Signup extends StatefulWidget {
