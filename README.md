@@ -101,41 +101,41 @@ Rakshak is a comprehensive blood donation and requesting application built for t
 6. Add donation to the users donation history
 7. Add blood bank details to the blood bank section
 
-#### Screenshots
+## Screenshots
 
-## Home Screen & User Dashboard
+### Home Screen & User Dashboard
  <img src="screenshots/home.jpg" width="100"> <img src="screenshots/userdashboard_1.jpg" width="100"> <img src="screenshots/userdashboard_2.jpg" width="100">
 
-## Blood Bank Near User
+### Blood Bank Near User
 <img src="screenshots/blood_bank_map.jpg" width="100" alt="Blood Bank Map"> <img src="screenshots/blood_banks_1.jpg" width="100" alt="Blood Bank"> <img src="screenshots/blood_banks_2.jpg" width="100" alt="Blood Bank">
 
-## Events Near User
+### Events Near User
 <img src="screenshots/events_1.jpg" width="100" alt="Events"> <img src="screenshots/events_2.jpg" width="100" alt="Events">
 
-## Donation History
+### Donation History
 <img src="screenshots/Donation.jpg" width="100" alt="Donation History">
 
-## Blood Pressure
+### Blood Pressure
 <img src="screenshots/Blood_pressure.jpg" width="100" alt="Blood Pressure">
 
-## Leaderboard
+### Leaderboard
 <img src="screenshots/leaderboard.jpg" width="100" alt="Leaderboard">
 
-### Request
+## Request
 
-  ## All requests
+### All requests
 <img src="screenshots/all_request.jpg" width="100" alt="All Requests">
 
-  ## User request
+### User request
 <img src="screenshots/user_request.jpg" width="100" alt="User Request">
 
-  ## Request 
+### Request 
 <img src="screenshots/request.jpg" width="100" alt="Request">
 
-## Genral information
+### Genral information
 <img src="screenshots/genral_info.jpg" width="100" alt="Genral information">
 
-## User Profile
+### User Profile
 <img src="screenshots/user_profile_1.jpg" width="100" alt="User Profile"> <img src="screenshots/user_profile_2.jpg" width="100" alt="User Profile">
 
 
