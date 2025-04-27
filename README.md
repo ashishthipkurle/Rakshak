@@ -104,8 +104,11 @@ Rakshak is a comprehensive blood donation and requesting application built for t
 
 ## Screenshots
 
+### Loading Screen
+<img src="screenshots/loading.jpg" width="100">
+
 ### Home Screen 
- <img src="screenshots/home.jpg" width="100">
+<img src="screenshots/home.jpg" width="100">
 
 ### Login Screen
 <img src="screenshots/login.jpg" width="100">
