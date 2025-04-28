@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:animate_do/animate_do.dart';
-import 'package:lottie/lottie.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class General extends StatefulWidget {
   const General({super.key});
@@ -53,6 +53,18 @@ class _GeneralState extends State<General> {
     super.dispose();
   }
 
+  // Method to launch Google search
+  Future<void> _launchGoogleSearch(String query) async {
+    final Uri url = Uri.parse('https://www.google.com/search?q=${Uri.encodeComponent("blood donation $query")}');
+    if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Could not launch search')),
+        );
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,6 +73,7 @@ class _GeneralState extends State<General> {
         title: Text(
           "General Information",
           style: GoogleFonts.poppins(fontWeight: FontWeight.bold),
+
         ),
         centerTitle: true,
         backgroundColor: Colors.red,
@@ -189,29 +202,106 @@ class _GeneralState extends State<General> {
     faq["question"].toLowerCase().contains(_searchQuery) ||
         faq["answer"].toLowerCase().contains(_searchQuery)).toList();
 
-    if (filteredFaqs.isEmpty) {
-      return Center(
-        child: Padding(
-          padding: const EdgeInsets.all(32.0),
-          child: Column(
-            children: [
-              Icon(Icons.search_off, size: 64, color: Colors.grey[400]),
-              const SizedBox(height: 16),
-              Text(
-                "No matching FAQs found",
-                style: GoogleFonts.poppins(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
+    if (filteredFaqs.isEmpty && _searchQuery.isNotEmpty) {
+      return Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                const Icon(Icons.search, color: Colors.red),
+                const SizedBox(width: 8),
+                Text(
+                  "Search Results",
+                  style: GoogleFonts.poppins(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 8),
+            const Divider(thickness: 2, color: Colors.red),
+            const SizedBox(height: 16),
+
+            // Google search suggestion card
+            Card(
+              elevation: 2,
+              shadowColor: Colors.blue.withOpacity(0.3),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.all(8),
+                          decoration: BoxDecoration(
+                            color: Colors.blue[50],
+                            shape: BoxShape.circle,
+                          ),
+                          child: const Icon(Icons.search, color: Colors.blue),
+                        ),
+                        const SizedBox(width: 12),
+                        Text(
+                          "Google Search",
+                          style: GoogleFonts.poppins(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.blue[700],
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 16),
+                    Text(
+                      "No results found for \"$_searchQuery\"",
+                      style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 18,
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      "We couldn't find any matching FAQs in our database. Would you like to search Google for information about blood donation related to your query?",
+                      style: GoogleFonts.poppins(
+                        fontSize: 14,
+                        height: 1.5,
+                      ),
+                    ),
+                    const SizedBox(height: 12),
+                    const Divider(),
+                    const SizedBox(height: 8),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        TextButton.icon(
+                          onPressed: () => _launchGoogleSearch(_searchQuery),
+                          icon: const Icon(Icons.open_in_new, size: 16),
+                          label: Text(
+                            "Search on Google",
+                            style: GoogleFonts.poppins(fontSize: 12),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ),
-              const SizedBox(height: 8),
-              Text(
-                "Try using different keywords or browse all FAQs",
-                textAlign: TextAlign.center,
-                style: GoogleFonts.poppins(color: Colors.grey[600]),
+            ),
+
+            const SizedBox(height: 24),
+            Text(
+              "Try different keywords or use Google search for more information.",
+              style: GoogleFonts.poppins(
+                fontSize: 14,
+                color: Colors.grey[600],
+                fontStyle: FontStyle.italic,
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       );
     }

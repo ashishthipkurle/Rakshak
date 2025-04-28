@@ -31,6 +31,12 @@ dependencies:
 
   confetti: ^0.7.0
 
+  webview_flutter: ^4.7.0
+
+  webview_flutter_android: ^3.10.0  # Android implementation
+  webview_flutter_wkwebview: ^3.10.0  # iOS implementation
+  webview_flutter_web: ^0.2.2+3  # Add this
+
   geolocator: ^11.0.0
   uuid: 4.5.1
   flutter_carousel_widget: ^2.1.2
